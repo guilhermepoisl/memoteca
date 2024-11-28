@@ -16,9 +16,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PensamentoService } from './../pensamento.service';
 import { Pensamento } from './../pensamento';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-pensamento',
+  imports: [FormsModule],
   templateUrl: './editar-pensamento.component.html',
   styleUrls: ['./editar-pensamento.component.css']
 })

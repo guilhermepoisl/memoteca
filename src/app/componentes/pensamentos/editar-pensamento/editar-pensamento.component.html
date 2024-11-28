@@ -1,23 +1,97 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+<section class="container editar-pensamentos ff-inter">
+  <header class="header">
+    <h2>Adicione um <br>pensamento novo:</h2>
+  </header>
+  <form>
+    <label for="pensamento">Pensamento</label>
+    <input
+      type="textarea"
+      class="input"
+      id="pensamento"
+      name="pensamento"
+      placeholder="Digite o pensamento"
+      [(ngModel)]="pensamento.conteudo"
+    >
+    <label for="autoria">Autoria ou fonte</label>
+    <input
+      type="text"
+      class="input"
+      id="autoria"
+      name="autoria"
+      placeholder="Digite a autoria ou fonte"
+      [(ngModel)]="pensamento.autoria"
+    >
+    <label for="modelo">Selecione o modelo do card:</label>
+    <div class="container-radio">
+      <div class="radio-modelo">
+        <label for="modelo1">
+          <input
+            type="radio"
+            id="modelo1"
+            value="modelo1"
+            name="modelo-card"
+            [(ngModel)]="pensamento.modelo"
+          >
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 1</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo1 ff-roboto-mono">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAAzCAYAAADIHWWPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAVkSURBVHgBzVrNbttGEB5SsoC2hypobPQWpn2AOLce5bZ2k1PtW2+Wn0DxE4gCerfzBJafQM4tcIuEfQIrt/TSsLcgaWDn0gSwrM031NKQ5V1y+bPrfIBAibvkjL6dmZ2dXY8soN0J262W1+Pvb477A7pBLK+HXVy2z89p6ywKz1R9mlQj0j8/nYpHQog231vZCF+8OQ6PyDFu/xx2PI8O8DXg361W8n1L1dejmrAodE7C+O1xeJ8cAQMRNJu0B102F9uEoLX//gyjxfuVLYFHf6lFfRL06FqjR3HDV7NvA8sbg20xFfsgoL3YBgIGKgIYlSwB/raKy4gWR3/2ZiZg7fXTMCbLyBwIYHpBO++ehUPd86VJWF4f9OD3oYp1xwQES0v0nFQDQfkEMEq5w8rGoC8JuA6HBLAlwsyZgLaqHTruvns2GOa9x6eCWN4I95gAZaNDAjDrbDIBSkukNAYM9k3eVcgdVn4JD8SUupo3uSZgpGuXQTAkQxiTkLpARpf7b/8Ix2QZqQtkW4A5AQyjmJBHAPseTM86ARwEcRllEHBUlABGbkyYmV4WAea+VwXJNJgxC7A7Tia0QyXg5wgO8Cf3dO1lmS8DEMB6BKo2QXTG8Ui3NsiDnyNYnQgxwDzS011yAM5JcOnq2hHYdqsEZC0JHAdwWdU+CTdwlQzluGOEgDykCvB1gnklqH0KVlBVsClgjX1dIExU8apbY1MnmEgvmK2AHEDWArraDrMVauVZ6ZolyGmom/Oc9elQop/ZKugvqgHXSJBWkInzi+YpWYa0giCrD+JBqdlgEVdIMLQCavqTu2Qf23kdsmJFEVwhwcQKpPA9Tl7IEvBunpU6Bl17sqZRCYvu0CEzrIKwEy6pkQXg3b0C3U/kdF4alwso6YMHVBxD+OahrnRVBiD3tISpx/gMUFU+Kpo5enOCR6riZAklIigRU0l881O46fv6ZXIeOFjifxxBj4GpHvMknNYVaIBhESXmAYtka+xSPYjwOcxL7BISZLn8OdWPwmTcXg9PvKx0vRxi6LGm00MGRlG30BRdXv7KqTcXPONYIIDBxdhXugCakCCEF5A9sAInXJfI64hVqa3BSMALMRURCQkIRPfILtoIWAd5czpcMiDLUBGR5gkB2QcH3VFWkgWiAnIAJmI+x3FJQiIHJq9doruwhDlZlzlR4X2HGoT3dNYAS/ia3CFI45T/7QOzyF0jsH2vTs9rzFOMANKT9Ny5JUjhHfo8kATqGyHBpe/noN3+8fc7N2UJ9zT3aymSFMFSY3LLd1ExNgUs5D05Bohvp5YQk0t46hGHQjHdAGTa7KxwmgA72zoSnOrBwNbdOF1A1VK1NQXM/oXq/sVFsvR1qAjFXIBJSJhMvIgcgvcwVfdlRSgiZ4rMZPlS+NiZcLCfVYpDXv+EHAEWmcianyIPyQVENtmwyqGTqRKDkR4yvSQhKUF5lqMzH+lpZG/hSZd4TLYxt5V4JVlC1C51yMFY7lQ8NslLELH3rQ7IwobyFRLYV4WlzdbZgQ6zEy2JNQjasuIW8oDZ/K3GYp///4miL+52biFo/ED1YYzR3foYRx9NH4Aer6HH39DjN6oJfKIFNcyHiAUv5+83VJ0/vIqefvkdCtBe9dUeH6IAAQ/LHKWBHi+/+r7zBKP3gKjiMhsWwASoTthlHuFLSvE+KjAlyl7MOhio5VAX1zyQSIVksEmr1AUDgYrWji4eGZ1j5C06vGjbxDKkyR1iFtive3GWkgEZv3oGliFm0/Egb4uw0IlWLovNyuJiFb4STKezchiq1e+R5MR4Hfv+uOwpsiKYFUp5v8TjSvad9D4G6l984iJ7kp8ApiFhpReq6e4AAAAASUVORK5CYII=" alt="Aspas azuis">
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+        </div>
+      </div>
 
-import { EditarPensamentoComponent } from './editar-pensamento.component';
+      <div class="radio-modelo">
+        <label for="modelo2">
+          <input
+            type="radio"
+            id="modelo2"
+            value="modelo2"
+            name="modelo-card"
+            [(ngModel)]="pensamento.modelo"
+          >
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 2</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo2 ff-roboto-mono">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAzCAYAAAAn3w6xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAATfSURBVHgBzZrbcdtGFIb/XVLOY9hBkAYso4LQHcQVmHpLLM/IrsBSBaJnzCRvoioIXQHZASk3YLgD+dEXYn3OApBJCFgsgN2lvhnPkATks+e6Zy8CHvhrrcaDAd4I4O27x2KBA/FqrUZfhzgTCtHssTipekfAIaR4xIpDYZL/dLtNEf8XiwSBeXGjzki5c/o44u9pitf/xmJafk/CESxwILHeUZ4ZDQQZJCAcfac3ak3Ks7Kj4ncpq8cxRH+B7PUrUnxcfqYUFo8UXiMQpx/UJY3jVcWjRKV4VvU3vVKALP0cJUvvcD07FhMEQDtB4n/6+KTicUJp+LQuDTungLY2MMfhlR/r1OugPNM6AriyfhuQtStCPieY8nmhm9Y8blSeaRUBHGrfJJYG5TdHaWUOOoeUf2NQ/pZz3mb2sY6APM+W9DGqeYWVfzqNxS08kyt/XveclI//icUGFljNAjrssyIT1bzC4fZs9jCUP7FVnrFKga88zVUXGcYq11yw09xUQs8uSPk5WtCYAk0WF6T8u1is4Jk8BbnajyrHwW33sWhdf4wGeLFWEyG19+v++IKEnsMzFvUnoZnnd3RAmoQKaWhjFVYhlGf0+qJeeXAKoiOys1CFEwSAo7C0vtiDo7BP/RF1Qk2hTwOaz54I7wbwGfoFlRFgDH1o718gALSC47VGVPsCpSH6yij/oEPOJJS6rBBTnq5BhtmHoY2Oa/TkngGavE8kCEBeg4x8IWegJ3sGsPA+E3FnCI+w902Fr+CovjmzZs8AFt5neDXodZeHBjW2eY/Hq43VT1YGr6vR7P0M2nWh/YCrvsLrsHQEo2eJPHK7ySo+sEI2YVfxP8y3235z8S75BscSbRFYqS2uO68FaHvrI2wjwOEAypA3pxQBZ+hOoiTm6XdcW+8HdLZ6/QCmNID3XaKCd3ThoLhpLKJTZu85EpgR0Qpxygb9e61arc7ymuJuLJTSNI6PpnqVGWCAP+CeiDq5SxK+tC2WQ7eO+ElmiOXLrNDvkRlA9cj9ZuE6vWyMkPoyQEZEqbnMt/LvKKZBn4K1cDZCYwM1wDH8M3/5Qf1ZfJFUdX0rXxBRA3VpeoFqh9cOs4BOrK4KZ8gUYYRmkjGpysM7hMdU3GdUOEMOQxqAUOY2OqgzOArCRkAmeGyoBUHHQqvJibPj8ZaCx3gAUP8zPogBgGC5boRa7uODGIAER3gY6BqQIDDUeP1a8yhBWEbyAEKhBD5XPwg/FpmvlLwfau6RVsujBuUGYdlkNUDB+jTVBSR0VfMo6DjoJPmTNkCq8B4BGdYo+ghYICwLbYBfsrs+YaBTpbpLFPp3B4cdttAEsJKFYL7ShgA0HWaIQKdO7Aiuf3d9QBrmPt+m6S6Bfh4gCorjvTsDsDWoKHi1/rbmsmIZlTnD28y0e6J873TY6aZkSWib+wSnvJ8ozfsHHdnQiXJcfLnXCudeSuCQLjdJZrGYCvcRmZSj8J4BODSOUsSuimKfazRUD84dGmFTdZnLeEcoD0M+pIjQnoQGf+LiApXFRQkjpgtUjbfEWDgfVubndRGauSXF31KzM3V9aVLfXBF4TqMeW7zOPcWCq72zu8JsDN67z7evRzQYvaqjdPms2OPUWLS5pNgV3lH6TmPY0j+RjeO34hlN5zcDCnfuNm0c8ANP2RfzzMrCQwAAAABJRU5ErkJggg==" alt="Aspas azul claro">
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+        </div>
+      </div>
 
-describe('EditarPensamentoComponent', () => {
-  let component: EditarPensamentoComponent;
-  let fixture: ComponentFixture<EditarPensamentoComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ EditarPensamentoComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(EditarPensamentoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+      <div class="radio-modelo">
+        <label for="modelo3">
+          <input
+            type="radio"
+            id="modelo3"
+            value="modelo3"
+            name="modelo-card"
+            [(ngModel)]="pensamento.modelo"
+          >
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Modelo 3</span>
+        </label>
+        Prévia:
+        <div class="modelo modelo3 ff-roboto-mono">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAAzCAYAAADIHWWPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAVISURBVHgBzZrNUhtHEMd7ZlfBOVk2TqpyCn6C4HOqbOkNnCcAngB8BiIRpLOVJwCewPgJVibJOeQJwKdUJcYol7jK0k67e3YtCWk/Zj9m5N8Far969J/unq8WYIHu38GGf887ARW+PlhvD2BFdK+CZqPp7wLi5v7Dpz+lPSegRtio3/Q6ZHQvvjQSE9Xe/7Z9CY7p3/62i6i69G9TX0AxOFh/+iLp2dpEWDI6NSDOs3qhbqZeiNhauDWaCPWk+6B9vfiODxX5bJQEaCXcvhyLcAccEXfEgARYvDUSQrWTBGAqecLxv0FLePIVLPR+zOUkMjwCy2T0PqMF2H+QHpISSkKqd0iAAFYsQP+fYLOxRu0oKQBT2BPi5PeSjG6nPOJMgN7t71uA4WnKbSMBmEIiaAHu697fTPnY9ThKPvY9gDwxTsSJkABPTARgjMPBUID2lyCAUmrHVADGWAQKAU6AeQJcg2XmhuJE6N7Rz4/ap1AAo3Do3V68nJsALZI6/tZNPBoFafdZgMP1dhcKkusJ7HoZApBldeRCAB4GpSdP0u4LgedlBGAyReDhJ8/1XK0NeBikKdBG0j0djoAvoCSp4cDK5xnef/jsMTggJxyBwvFxFW9M9QT/K6+TJgDDiRAcwHkgSwAKg9Oq4ZgoAocBiNTJUC2GTcnKAwyFwRFUtZF41dfrgVTUBM/AAXo4zPDGujpjSYT+u2A7yzBz+E17CJbhnEQjz17WMyrE11ADy54gZSfrBU6I4IDGPX8rrzMAoZbZ6R0RTLyA73dvgybYBtV23iNCJs9gi3JHBPS8LZOXfEWrSIuYdIZGyI4Om4pMRYhiMHFNnmAct3vvL4I6GpCEaWcQTZ7L/EKiQQWmk6Xjm2AghNyFgggUp+OP4VH3u3qGTL1LtCavoCCcq0JVfPEUvxvRf//mysgFU78khioMz8o0Yp7eTbBHbl463HTiRjEs0jFahLLq19WIeWiKHBiHZV5byEuVCs/yhnSdExoNaEFNsDch5QwWVa9AC3+gHgH0p6gdvPTu31ycZOUvLYIS9Qw1S42gFSiHmWkC1esEG+2IOuXP43fB86T7WgQhvR/AEuwZnMFNhKhr3E+hKaR8leSd0RBJZ3VgEVMhKiVm07aQd+rkO4eMZ3/WZ4D8A/01L3NFKIX3PbhgYZIlG2P76s/AVlbco7DfGTHN+Q6Ryp1hjfC81BFDIG6AM2YdUvoYrorx3oc/3Lh9HjKaGqxABOL/j86O6rMQwnvGf1cigotRwIxoVFyJCFKK+/BloPOhDH03O0XzICZ7AnmI9XPMRTg/sSc4N0w/97/Eq6j+AsccfP3jW8mnyK72DT9DnnCddJ3a4brASztAtIBC9QZcgjBMvKxci4DanhZBpjTKFqGX/GMpP/F1d+GJ0Za9FmHswbk74zhMOzDh0KS84ORgh5lI/bsjEWLjv4IDlMo5vVJRw+wz64zpPCGUwEfsVr2BE3DeHmS0FSaGYBkxmR3lz7bcudYIVeXDzSxUqIwKOydRAai1DuEzzPlS4zszRi644DJcsIAupTE8w2Q3VUqVLrrIIqmgY2naHJfh1jpUcbIrWkrDYYM1e2Zahd2SCPwAF2PWlSj5OyTANpRAC4faIyqHRlaFXWb1Gp8J8il1yVXfCJXaOXzUrhxetAW44aOgnSDRghJwR1Di76bVWBqV8OkDUinoiE6YbMiOYqODugs7eSdIemIXQTw3ewOHGGJuLipW1ks94oW0LR6dUzQlREtiRQsidjee9roo4GB0TSNt0WPUjulOFbXlLU3LL2lWOjTthE/xW7l/Ovg/2wAAAABJRU5ErkJggg==" alt="Aspas verdes">
+          <p class="conteudo">{{ pensamento.conteudo }}</p>
+          <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button (click)="editarPensamento()" class="botao">Salvar</button>
+      <button (click)="cancelar()" class="botao">Cancelar</button>
+    </div>
+  </form>
+</section>

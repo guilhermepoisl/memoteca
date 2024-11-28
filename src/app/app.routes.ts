@@ -6,31 +6,33 @@ import { ExcluirPensamentoComponent } from './componentes/pensamentos/excluir-pe
 import { EditarPensamentoComponent } from './componentes/pensamentos/editar-pensamento/editar-pensamento.component';
 
 
-NgModule({
-  imports: [RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: 'listarPensamento',
-        pathMatch: 'full'
-      },
-      {
-        path: 'criarPensamento',
-        component: CriarPensamentoComponent
-      },
-      {
-        path: 'listarPensamento',
-        component: ListarPensamentoComponent
-      },
-      {
-        path: 'pensamentos/excluirPensamento/:id',
-        component: ExcluirPensamentoComponent
-      },
-      {
-        path: 'pensamentos/editarPensamento/:id',
-        component: EditarPensamentoComponent
-      }
-    ])],
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'listarPensamento',
+    pathMatch: 'full'
+  },
+  {
+    path: 'criarPensamento',
+    component: CriarPensamentoComponent
+  },
+  {
+    path: 'listarPensamento',
+    component: ListarPensamentoComponent
+  },
+  {
+    path: 'pensamentos/excluirPensamento/:id',
+    component: ExcluirPensamentoComponent
+  },
+  {
+    path: 'pensamentos/editarPensamento/:id',
+    component: EditarPensamentoComponent
+  }
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
-export const routes: Routes = [];
+export class AppRoutingModule { }
